@@ -29,7 +29,7 @@ def feedback_window():
                 header=0
                 if not(path.exists('feed.csv')):
                     header=1
-                with open("feed.csv",mode='a',newline='') as file:
+                with open("feed.csv",mode='a',newline='') as file: #Storing feedback in CSV files for now
                     fieldnames=['name','feedback','time']
                     writer = csv.DictWriter(file, fieldnames=fieldnames)
                     if header:
@@ -88,10 +88,10 @@ def faq_window(faqs):
             break
     window.close()
 def main():
-    menu_def = [['&Support', '&Feedback'],
+    menu_def = [['&Support', '&Feedback'], #Nested list representation of menu items
                 ['&Help',['&Manual','&About']]]
     layout=[[sg.Menu(menu_def, tearoff=False)],
-            [sg.Text('Auto FAQ Generator',justification='center',size=(600,1),font=("Arial",20),text_color="lightblue")],
+            [sg.Text('Auto FAQ Generator',justification='center',size=(600,1),font=("Arial",20),text_color="lightblue")], #Body Layout
             [sg.Text("Enter Text Summary/Passage",justification='center',font=("Arial",14),size=(600,1))],
             [sg.Multiline(size=(80, 20), key='textbox')],
             [sg.Button('Generate',size=(200,1),key='-GENERATE-')],
@@ -101,7 +101,7 @@ def main():
     while True:
         event, values = window.read()
         
-        
+        #Individual event-triggered calls to respective functions
         if event in (None, 'Exit'):
             break
         if event=="About":
@@ -119,7 +119,7 @@ def main():
             p=values['textbox']
             
             if len(p)!=1 and p!=' ' and p!=None:
-                faqs=[str(i)+". ------------------------\n" for i in range(10)]
+                faqs=[str(i)+". ------------------------\n" for i in range(10)] #Temporary display till model is built
                 faq_window(faqs)
             else:
                 caution_window()
