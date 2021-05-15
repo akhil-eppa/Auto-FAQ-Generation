@@ -92,7 +92,7 @@ def main():
                 ['&Help',['&Manual','&About']]]
     layout=[[sg.Menu(menu_def, tearoff=False)],
             [sg.Text('Auto FAQ Generator',justification='center',size=(600,1),font=("Arial",20),text_color="lightblue")],
-            [sg.Text("Enter text summary/Passage",justification='center',font=("Arial",14),size=(600,1))],
+            [sg.Text("Enter Text Summary/Passage",justification='center',font=("Arial",14),size=(600,1))],
             [sg.Multiline(size=(80, 20), key='textbox')],
             [sg.Button('Generate',size=(200,1),key='-GENERATE-')],
             [sg.Button('Clear',size=(35,1),key='-CLEAR-'),sg.Button('Exit',size=(35,1))]]
