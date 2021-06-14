@@ -46,10 +46,16 @@ class AnsExtPipeline:
     def __call__(self, inputs: str):
         inputs = " ".join(inputs.split())
         sents, answers = self._extract_answers(inputs)
+        sent_ans=[]
+        #return list containing sentence and answers
+        for i in zip(sents,answers):
+          sent_ans.append([i[0],i[1]])
+        return sent_ans
+        '''
         flat_answers = list(itertools.chain(*answers))
         flat_answers = [(i.strip("<pad>")).strip() for i in flat_answers]
         return list(set(flat_answers))
-    
+        '''
 
     #Given a context sentence, extract answer spans
     #Context is annotated using <hl> tags
