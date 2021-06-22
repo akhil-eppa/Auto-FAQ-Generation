@@ -22,3 +22,12 @@ Each dictionary has the following keys:
 * 'answers' -> an empty list initialized. Will be filled with answers from answer generation module 
 
 **NOTE** : Adding coherence based span extraction and integration into current module is in **progress**
+
+
+**Requirements** 
+* transformers
+* sentencepiece
+* torch 
+* tensorflow 
+* textblob 
+* nltk
