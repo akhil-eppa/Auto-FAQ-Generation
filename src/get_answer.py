@@ -40,6 +40,7 @@ def extract_answers(context):
     gen_ans=[]
     d=dict()
     for i in x(context):
+        pres_ans=[]
         sent=i[0]
         ans=i[1]
         if sent not in d:
