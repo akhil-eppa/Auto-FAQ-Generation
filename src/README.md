@@ -39,10 +39,35 @@ from get_gold_answer import extract_gold_ans
 res=extract_gold_ans("He was born on 2 October 1869 and was assassinated on 30 January 1948.","When was he killed?")
 print("answer = ",res["answer"])
 print("probabilistic score = ",res["score"])
+``` 
+**UPDATE** 
+
+* Given a sentence and question generate answer span using spanbert. 
+* Following this, check if the given answer phrase is a proper noun phrase. 
+* If it is a proper noun phrase, get additional information from a knowledge graph. 
+```
+from get_gold_answer_v2 import extract_gold_ans
+res,extra=extract_gold_ans("Star Wars released in 1977.","What released in 1977?")
+print("answer = ",res["answer"])
+print("probabilistic score = ",res["score"])
+print(extra)
+print("*"*50)
+if extra!=None:
+    print(res["answer"]+".\n"+extra)
+else:
+    print(res["answer"])
+
+'''
+OUTPUT:
+answer =  Star Wars
+probabilistic score =  0.9976034760475159
+Star Wars is an American epic space opera media franchise created by George Lucas, which began with the eponymous 1977 film and quickly became a worldwide pop-culture phenomenon. 
+**************************************************
+Star Wars.
+Star Wars is an American epic space opera media franchise created by George Lucas, which began with the eponymous 1977 film and quickly became a worldwide pop-culture phenomenon. 
+'''
 ```
 
-**NOTE :** Further enhancement is in the pipeline. If the selected answer is a proper noun phrase, 
-then use knowledge graph to append additional information to the answer. 
 
 <hr>
 
@@ -52,4 +77,5 @@ then use knowledge graph to append additional information to the answer.
 * torch 
 * tensorflow 
 * textblob 
-* nltk
+* nltk 
+* advertools
