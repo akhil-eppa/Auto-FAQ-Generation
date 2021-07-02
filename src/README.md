@@ -18,7 +18,7 @@ print(extract_answers("This is a small test. Run these commands to test it out."
 ``` 
  * Given a passage get sentences and corresponding answers along with noun phrases as:
  ```
-from get_answer import extract_answers
+from get_answer_v2 import extract_answers
 print(extract_answers("This is a small test. Run these commands to test it out."))
 ``` 
 
