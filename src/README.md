@@ -79,3 +79,8 @@ Star Wars is an American epic space opera media franchise created by George Luca
 * textblob 
 * nltk 
 * advertools
+
+
+
+
+[{"sentence":"Delhi is the capital of India.","spans":["Delhi","capital"],"questions":[],"answers":[]},{}]
