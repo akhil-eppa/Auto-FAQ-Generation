@@ -10,7 +10,8 @@ x("-------***Enter your text here***-----------")
 <hr>
 <h3> Span Prediction Module </h3> 
 
-* Given a passage get sentences and corresponding answers as: 
+* This essentially is a wrapper over the Answer Extraction Pipeline discussed above
+* Given a passage, get sentences and corresponding answers as: 
 
 ```
 from get_answer import extract_answers
@@ -25,7 +26,7 @@ print(extract_answers("This is a small test. Run these commands to test it out."
 Given a passage of text this function will return a list of dictionaries.
 Each dictionary has the following keys: 
 * 'sentence' -> Holds an individual sentence from passage 
-* 'spans' -> list of spans extarcted from the given passage 
+* 'spans' -> list of spans extracted from the given passage 
 * 'questions' -> an empty list initialized. Will be filled with questions from question generation module 
 * 'answers' -> an empty list initialized. Will be filled with answers from answer generation module 
 
@@ -33,7 +34,7 @@ Each dictionary has the following keys:
 
 <h3> Gold Answer Extraction Module </h3> 
 
-* Given a sentence and question generate answer span using spanbert based module as follows: 
+* Given a sentence/context and question generate answer span using spanbert based module as follows: 
 ```
 from get_gold_answer import extract_gold_ans
 res=extract_gold_ans("He was born on 2 October 1869 and was assassinated on 30 January 1948.","When was he killed?")
@@ -83,4 +84,4 @@ Star Wars is an American epic space opera media franchise created by George Luca
 
 
 
-[{"sentence":"Delhi is the capital of India.","spans":["Delhi","capital"],"questions":[],"answers":[]},{}]
+[{"sentence":"Delhi is the capital of India.","spans":["Delhi","capital"],"questions":[],"answers":[]},{Next Sentence dictionary}]
