@@ -3,7 +3,7 @@ Helper functions that when given a list of dictionaries that contains sentence(c
 dictionaries in the descending order of the score (i.e highest score will be first and lowest score will be last)
 '''
 def sort_list (list_of_dictionaries):
-    sorted_list = sorted(list_of_dictionaries, key=lambda k: k["score"]) #Score key is appended when pre-trained model assigns value
+    sorted_list = sorted(list_of_dictionaries, key=lambda k: k["score"], reverse=True) #Score key is appended when pre-trained model assigns value
     return sorted_list
 
 '''
