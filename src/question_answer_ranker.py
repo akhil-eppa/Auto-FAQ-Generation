@@ -21,6 +21,6 @@ the score as one of the keys of the dictionary
 '''
 def rank_qa_pairs(list_of_dictionaries):
     for i in list_of_dictionaries:
-        rank_score = qapair_rank_pipeline(i["questions"], i["answers"])
-        i["score"] = rank_score["Score"]
+        rank_score = qapair_rank_pipeline("[CLS]" + i["questions"] + "[SEP]" + i["answers"] + "[SEP]")
+        i["score"] = rank_score["LABEL_0"]
     sort_list(list_of_dictionaries)
