@@ -1,4 +1,5 @@
 from transformers import pipeline
+from get_gold_answer_v2 import extract_gold_ans
 # To immediately use a model on a given text, we provide the pipeline API. Pipelines group together a pretrained model with the preprocessing that was used during
 # that model's training.
 qapair_rank_pipeline = pipeline(
@@ -12,7 +13,15 @@ Helper functions that when given a list of dictionaries that contains sentence(c
 dictionaries in the descending order of the score (i.e highest score will be first and lowest score will be last)
 '''
 def sort_list (list_of_dictionaries):
-    sorted_list = sorted(list_of_dictionaries, key=lambda k: k["score"], reverse=True) #Score key is appended when pre-trained model assigns value
+    unsorted_list=list()
+    for item in list_of_dictionaries:
+        for i in range (len(item["questions"])):
+            d=dict()
+            d["question"]=item["questions"][i]
+            d["answer"]=item["answers"][i]["answer"]
+            d["score"]=item["answers"][i]["score"]
+            unsorted_list.append(d)
+    sorted_list = sorted(unsorted_list, key=lambda k: k["score"], reverse=True)
     return sorted_list
 
 '''
