@@ -22,7 +22,11 @@ def sort_list (list_of_dictionaries):
             d["score"]=item["answers"][i]["score"]
             unsorted_list.append(d)
     sorted_list = sorted(unsorted_list, key=lambda k: k["score"], reverse=True)
-    return sorted_list
+    if len(sorted_list)<=5:
+        return sorted_list
+    else:
+        filtered_list = [d for d in sorted_list if d["score"]>=0.8]
+        return filtered_list
 
 '''
 Given list of dictionaries with sentence(context),span,question and answer, it focuses only on QA and using a pre-trained model scores them and also appends
