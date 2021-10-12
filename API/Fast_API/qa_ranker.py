@@ -1,4 +1,4 @@
-def generate_qa_pairs(qa_dict):
+def generate_qa_pairs(qa_dict, limit):
 	QAs=[]
 	for qa in qa_dict:
 		for question in enumerate(qa['questions']):
@@ -9,4 +9,4 @@ def generate_qa_pairs(qa_dict):
 			pair['score']=qa['answers'][question[0]]["score"]
 			QAs.append(pair)
 	QAs.sort(key=lambda x:x["score"],reverse=True)
-	return QAs
+	return QAs[:limit]

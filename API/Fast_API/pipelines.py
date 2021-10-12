@@ -4,8 +4,6 @@ Created on Mon Jun 14 11:07:28 2021
 @author: Akhil
 """
 
-# import itertools
-# import logging
 from typing import Optional, Dict, Union
 from nltk import sent_tokenize
 import torch
@@ -50,11 +48,6 @@ class AnsExtPipeline:
         for i in zip(sents,answers):
           sent_ans.append([i[0],i[1]])
         return sent_ans
-        '''
-        flat_answers = list(itertools.chain(*answers))
-        flat_answers = [(i.strip("<pad>")).strip() for i in flat_answers]
-        return list(set(flat_answers))
-        '''
 
     #Given a context sentence, extract answer spans
     #Context is annotated using <hl> tags
@@ -159,7 +152,6 @@ def answer_pipeline(
             ans_tokenizer = AutoTokenizer.from_pretrained(ans_tokenizer[0], **ans_tokenizer[1])
         else:
             ans_tokenizer = AutoTokenizer.from_pretrained(ans_tokenizer, use_fast=False)
-    #ans_tokenizer = AutoTokenizer.from_pretrained(model, use_fast=False)
     # Instantiate model if needed
     if isinstance(ans_model, str):
         ans_model = AutoModelForSeq2SeqLM.from_pretrained(ans_model)
