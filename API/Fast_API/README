@@ -1,1 +1,45 @@
-##API Endpoint: https://faq-generator
+API URI(endpoint): https://faq-generator.loca.lt/api
+
+Request method: POST
+
+Request schema: JSON object
+
+Request parameters:
+- "context": type = string
+- "limit": type = int
+
+Sample Request:
+{
+  "context": "Star Wars was released in 1979. It was directed by George Lucas.",
+  "limit": 5
+}
+
+Response schema: List of JSON objects
+
+Response parameters:
+- "sentence": type = string
+- "question": type = string
+- "answer": type = string
+- "score": type = float
+
+Sample Response:
+[
+    {
+        "sentence": "Star Wars was released in 1979.",
+        "question": "What movie was released in 1979?",
+        "answer": "Star Wars",
+        "score": 0.9977646470069885
+    },
+    {
+        "sentence": "Star Wars was released in 1979.",
+        "question": "When was Star Wars released?",
+        "answer": "1979",
+        "score": 0.9922865629196167
+    },
+    {
+        "sentence": "It was directed by George Lucas.",
+        "question": "Who directed the film?",
+        "answer": "George Lucas",
+        "score": 0.9744633436203003
+    }
+]
