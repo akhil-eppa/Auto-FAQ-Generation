@@ -87,7 +87,7 @@ def extract_answers(context):
     for i in d:
         ind_answer={}
         ind_answer["sentence"]=i
-        ind_answer["spans"]=d[i]
+        ind_answer["spans"]=list(set(d[i]))
         ind_answer["questions"]=[]
         ind_answer["answers"]=[]
         gen_ans.append(ind_answer)
