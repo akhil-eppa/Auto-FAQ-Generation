@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            GoalKeeper Add Goal
+        </title>
+    </head>
+<body>
+    <button onclick="get_faq()"> TEST API </button>
+                                        <script>
+                                            function get_faq()
+                                            {
+                                                console.log("Update")
+                                                const data = {context: "Sending some data.", limit: 8}
+                                                //const xhr = new XMLHttpRequest()
+                                                //xhr.open('POST', 'https://faq-generator.loca.lt/test')
+                                                //xhr.setRequestHeader('content-type', 'application/json')
+                                                //xhr.send(data)
+                                                /*
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                },
+                                                */
+
+                                                //POST request with body equal on data in JSON format
+                                                
+
+
+                                                console.log(JSON.stringify(data))
+                                                fetch('https://faq-generator.loca.lt/test', {
+                                                mode: 'no-cors',
+                                                method: 'POST',
+                                                body: JSON.stringify(data),
+                                                //body: data,
+                                                headers: {
+                                                    //'Content-Type': 'application/json',
+                                                    
+                                                    'Content-Type': 'application/json',
+                                                    //"Accept-Encoding": "gzip, deflate, br",
+                                                    //"Connection":"keep-alive"
+                                                    //'Access-Control-Allow-Credentials': 'true'
+                                                },
+                                               
+                                                })
+                                                //.then((response) => response.json())
+                                                .then((response) => console.log(response))
+                                                //Then with the data from the response in JSON...
+                                                .then((data) => {
+                                                console.log('Success:', data);
+                                                })
+                                                //Then with the error genereted...
+                                                .catch((error) => {
+                                                console.error('Error:', error);
+                                                });
+                                                
+                                
+                                                                                                
+                                                 }
+                                                                                        
+
+                                        </script>
+</body>
+</html>
