@@ -84,10 +84,14 @@ def extract_answers(context):
                     pres_ans.append(n)
                     d[sent].append(n)
     ind_answer={}
+    encountered_spans=[]
     for i in d:
         ind_answer={}
         ind_answer["sentence"]=i
-        ind_answer["spans"]=list(set(d[i]))
+        current_spans=[x for x in d[i] if x.lower() not in encountered_spans]
+        ind_answer["spans"]=list(set(current_spans))
+        for ele in current_spans:
+            encountered_spans.append(ele.lower())
         ind_answer["questions"]=[]
         ind_answer["answers"]=[]
         gen_ans.append(ind_answer)
