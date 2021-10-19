@@ -8,8 +8,33 @@ import csv
 import PySimpleGUI as sg
 import os.path
 from os import path
+import time
 import datetime
-
+import requests
+import json
+import threading
+def get_faqs(context,limit,window):
+    headers = {'content-type': 'application/json'}
+    print("Before API Call")
+    response = requests.post('https://faq-generator.loca.lt/api', timeout=1000, json = {"context":context,"limit":limit})
+    print(response)
+    t=response.text
+    print("After API Call")
+    t = json.loads(response.text)
+    #print(t)
+    faqs=[]
+    for i in t:
+        print(i["question"])
+        print(i["answer"])
+        faqs.append(i["question"])
+        faqs.append(i["answer"])
+    faq_window(faqs)
+    '''
+    time.sleep(3)
+    faqs=["1","2","3"]
+    faq_window(faqs)
+    '''
+    window.write_event_value('-THREAD-', '** DONE **')
 #sg.theme('DarkAmber')
 def feedback_window():
     layout=[[sg.Text("Enter Name"),sg.Input()],
@@ -29,7 +54,7 @@ def feedback_window():
                 header=0
                 if not(path.exists('feed.csv')):
                     header=1
-                with open("feed.csv",mode='a',newline='') as file: #Storing feedback in CSV files for now
+                with open("feed.csv",mode='a',newline='') as file:
                     fieldnames=['name','feedback','time']
                     writer = csv.DictWriter(file, fieldnames=fieldnames)
                     if header:
@@ -79,6 +104,15 @@ def caution_window():
             break
     window.close()
 
+def caution_window2():
+    layout=[[sg.Text('Kindly input numerical value for number of FAQs!',justification='center',size=(400,200))]]
+    window=sg.Window("Caution",layout,size=(300,100),modal=True)
+    while True:
+        event,values=window.read()
+        if event=='Exit' or event==sg.WIN_CLOSED:
+            break
+    window.close()
+
 def faq_window(faqs):
     layout=[[sg.Listbox(values=faqs, enable_events=False, size=(600, 30), key='FAQ_List')]]
     window=sg.Window("FAQs",layout,size=(600,400),modal=True)
@@ -87,46 +121,72 @@ def faq_window(faqs):
         if event=="Exit" or event==sg.WIN_CLOSED:
             break
     window.close()
+def check(x):
+    if len(x)<1:
+        return False
+    try:
+        x=int(x)
+        return True
+    except:
+        return False
 def main():
-    menu_def = [['&Support', '&Feedback'], #Nested list representation of menu items
+    menu_def = [['&Support', '&Feedback'],
                 ['&Help',['&Manual','&About']]]
     layout=[[sg.Menu(menu_def, tearoff=False)],
-            [sg.Text('Auto FAQ Generator',justification='center',size=(600,1),font=("Arial",20),text_color="lightblue")], #Body Layout
-            [sg.Text("Enter Text Summary/Passage",justification='center',font=("Arial",14),size=(600,1))],
+            [sg.Text('Auto FAQ Generator',justification='center',size=(600,1),font=("Arial",20),text_color="lightblue")],
+            [sg.Text("Enter text summary/Passage",justification='center',font=("Arial",14),size=(600,1))],
             [sg.Multiline(size=(80, 20), key='textbox')],
+            [sg.Text('Number of FAQS :', justification='right'),sg.Input(justification='center',key='limit',size=(10,1))],
             [sg.Button('Generate',size=(200,1),key='-GENERATE-')],
             [sg.Button('Clear',size=(35,1),key='-CLEAR-'),sg.Button('Exit',size=(35,1))]]
-    window=sg.Window('AutoFAQGen',layout,size=(600,500))
+    window=sg.Window('AutoFAQGen',layout,size=(600,500),element_justification='c')
 
     while True:
         event, values = window.read()
         
-        #Individual event-triggered calls to respective functions
+        
         if event in (None, 'Exit'):
             break
-        if event=="About":
+        elif event=="About":
             about_window()
             #sg.popup('Developed at PES University in ','Collaboration with Dr. Ramamoorthy Srinath')
             print('about')
-        if event=="Manual":
+        elif event=="Manual":
             manual_window()
             print('manual')
-        if event=="Feedback":
+        elif event=="Feedback":
             feedback_window()
             print("feedback")
-        if event == '-GENERATE-':
+        elif event == '-GENERATE-':
             print("Asked to generate")
-            p=values['textbox']
-            
-            if len(p)!=1 and p!=' ' and p!=None:
-                faqs=[str(i)+". ------------------------\n" for i in range(10)] #Temporary display till model is built
-                faq_window(faqs)
+            context=values['textbox']
+            limit=values['limit']
+
+            if len(context)!=1 and context!=' ' and context!=None:
+                if check(limit):    
+                    #faqs=[str(i)+". ------------------------\n" for i in range(10)]
+                    #faq_window(faqs)
+                    threading.Thread(target=get_faqs, args=(context, limit, window), daemon=True).start()
+                    layout=[[sg.Text('FAQs are being Generated....',justification='center',size=(400,200))]]
+                    load=sg.Window("Caution",layout,size=(300,100),modal=True)
+                    while True:
+                        event,values=load.read()
+                        if event=="Exit" or event=="Alarm" or event==sg.WIN_CLOSED:
+                            break
+                    
+                    #get_faqs(context,limit)
+                else:
+                    caution_window2()
             else:
                 caution_window()
-        if event == '-CLEAR-':
+        elif event == '-CLEAR-':
             print("clear")
             window['textbox']('')
+            window['limit']('')
             #window.FindElement('-CLEAR-').Update('')
+        elif event == '-THREAD-':
+            load.close()
+            print("Done with API Call")
     window.close()
 
 if __name__=="__main__":
