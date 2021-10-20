@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            GoalKeeper Add Goal
+        </title>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="button.css">
+        <link rel="stylesheet" href="forms.css">
+        <link rel = "stylesheet" href = "cards2.css"> <!--Bigger in size than cards.css-->
+        <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+            text-decoration: none;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        #btn1{
+        margin: 4em;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        color: white;
+        padding: 9px 15px;
+        border-style: none;
+        box-shadow: 0px 3px 8px #e0e0e0;
+        letter-spacing: 0.1em;
+        border-radius: 4px;
+        outline: none;
+        -webkit-transition-duration: 0.2s; /* Safari */
+        transition-duration: 0.4s;
+        }
+        #btn1.success {
+        background-color: #0CCA4A;
+        }
+        #btn1.success:active {
+        box-shadow: 0 7px 8px 0 #0CCA4A;
+        transform: translateY(3px);
+        }
+        footer {
+        font-family: 'Open Sans', sans-serif;
+        position: absolute;
+        left: 0em;
+        bottom: -110em;
+        width: 100%;
+        background-color: #2C365E;
+        color: white;
+        border: 0.1em solid #2C365E;
+        border-radius: 1em 1em 0em 0em;
+        }
+        
+        .headspace{
+            height:75px
+        }
+        #heading{
+            color:#BA1200;
+            font-size: 40px;
+            width:100%;
+            align-content: center;
+            text-align: center;
+            cursor:pointer;
+        }
+        .box{
+            height:30px
+        }
+        
+
+        hr{
+            
+            background-color:black;
+            height: 2px;
+            width:50%;
+            margin-left: 25%;
+            
+            align-content: center;
+            
+        }
+        .hbox{
+            width:75px
+        }
+        form{
+            margin-left:15%;
+            width:70%;
+        }
+        center{
+            font-size: 25px;
+            color: #30CFD0;
+        }
+        #navBarList {
+        height: 1.5em;
+        margin-left: 2em;
+        padding-top: 0.35em;
+        }
+        .question{
+            background-color:white;
+            color: #BA1200;
+            cursor:pointer;
+            width:100%;
+            padding:20px;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size:25px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .question:hover{ /* When you are moving over the question*/
+            background-color: rgb(247, 244, 244);
+        }
+        .active .question:hover{
+            background-color:lightsalmon;
+        }
+        .question:after{
+            content:"\02795";
+            
+            float:right;
+            margin-right: 25%;
+            color: #BA1200;
+            border-color: #BA1200;
+        }
+        .active:after{
+            content:'\2796';
+            border-block-color: #BA1200;
+        }
+        .panel{
+            
+            padding:20px;
+            overflow: hidden;
+            background-color: white;
+            color: black;
+            display: none;
+            font-size: 22.5px;
+        }
+        .q{
+            color:black;
+            font-size:30px;
+        }
+        #heading{
+            color:black;
+            padding:20px;
+            width:50%;
+            margin-left: 25%;
+            font-size:35px;
+
+        }
+        hr{
+            
+            background-color: #BA1200;
+            height: 2px;
+            width:50%;
+            margin-left: 25%;
+            
+            align-content: center;
+            
+        }
+        #head_space{
+            height:60px
+        }
+        #active{
+            cursor:default;
+        }
+        #navBarList {
+        height: 1.5em;
+        margin-left: 2em;
+        padding-top: 0.35em;
+        }
+        button:focus {
+        outline:none;
+        border: 0.2em solid white !important;
+        }
+        </style>
+    </head>
+    <body>
+        
+        <div id = "navBarDiv" style="z-index: 1 !important;">
+                <img alt = "GoalKeeperLogo" src="qa.jpeg" id="logo"></img>
+                    <ul id = "navBarList">
+
+                    
+                    <span class = "vl"><li class = "navBarItem element"><a href = "home.html">Home</a></li></span>
+
+                    <span class = "rightSide">
+
+                    </span>
+                    </ul>
+            </div>
+            <div class="box"></div>
+            <div class="headspace"></div>
+            <span class = "cards">
+                    <br/>
+                    <span class="cardContent">
+                            <center><div claas="main_logo"><img src="qa.jpeg" width="200" height="200"></img></div></center>
+                            <!--<div class="headspace"></div>-->
+                            <div id="heading">
+                            <b>Generate FAQs</b>
+                            </div>
+                            <div class="box"></div>
+                            <hr>
+                            <div class="box"></div>
+
+                                    <div class="box"></div>
+                                    <center>Enter the Passage<br></center><br>
+                                    <center><textarea name="description" rows="30" columns="50" placeholder="Passage goes here."></textarea></center>
+                                    <div class="box"></div>
+                                    
+                                    <center><table>
+                                        <tr>
+                                            <label for="quantity">How many questions do you want to generate?</label>
+                                        </tr>
+                                        <tr></tr>
+                                        <br>
+                                        <tr>
+                                            <input type="number" id="quantity" name="quantity" min="1" max="20">
+                                        </tr>
+                                    </table></center>
+                                    <div class="box"></div>
+                                    
+                                    
+                                   
+                                    
+                                    <center>
+                                        <!--<input type="submit" id = "btn1" value="Generate Questions and Answers"  class = "success">-->
+                                        <button onclick="get_faq()"> TEST API </button>
+                                        <script>
+                                            function get_faq()
+                                            {
+                                            
+                                                console.log("Update")
+                                                const data = {context: "Sending some data.", limit: 8}
+                                                //const xhr = new XMLHttpRequest()
+                                                //xhr.open('POST', 'https://faq-generator.loca.lt/test')
+                                                //xhr.setRequestHeader('content-type', 'application/json')
+                                                //xhr.send(data)
+                                                /*
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                },
+                                                */
+
+                                                //POST request with body equal on data in JSON format
+                                                
+                                                fetch('https://faq-generator.loca.lt/test', {
+                                                mode: 'no-cors',
+                                                method: 'POST',
+                                                body: JSON.stringify(data),
+                                                //body: data,
+                                                headers: {
+                                                    //'Content-Type': 'application/json',
+                                                    'Content-Type': 'plain/text',
+                                                    "Accept-Encoding": "gzip, deflate, br",
+                                                    //"Connection":"keep-alive"
+                                                    //'Access-Control-Allow-Credentials': 'true'
+                                                },
+                                               
+                                                })
+                                                .then((response) => response.json())
+                                                //Then with the data from the response in JSON...
+                                                .then((data) => {
+                                                console.log('Success:', data);
+                                                })
+                                                //Then with the error genereted...
+                                                .catch((error) => {
+                                                console.error('Error:', error);
+                                                });
+                                                
+                                            }
+                                        </script>
+                                </center>
+                                    
+
+                    </span>
+                
+            </span>
+
+<hr>
+<br>
+
+<center><b>Frequently Asked Questions</b></center>
+</div>
+<br>
+<hr>
+
+<button class="question"><span class="q">Q.</span> How can I my add goals and habits?</button> 
+<div class="panel">
+    The process is very easy.<br>All you need to do is login, go to the Goals and Habits Page and set your goals and timeframe needed to complete them.
+</div>
+<hr>
+<button class="question"><span class="q">Q.</span> What are the different packages offered?</button>
+<div class="panel">
+    Currently there is only a common basic plan available for all users at no cost.<br>Hence there are no upgrades available as of now.
+</div>
+<hr>
+<button class="question"><span class="q">Q.</span> How can I track my goals and habits?</button>
+<div class="panel">
+    One needs to set as to how often he would like to repeat his/her habits.<br>Based on this all the necessary tracking will take place and the user would be reminded at regular intervals.
+</div>
+<hr>
+<button class="question"><span class="q">Q.</span> Are there any rewards for accomplishing tasks?</button>
+<div class="panel">
+    As one keeps completing tasks(goals and habits), he/she gets medals. The medals are awarded as follows:<br>
+    <ul>
+        <li>5 Tasks - Bronze Medal</li>
+        <li>10 Tasks - Silver Medal</li>
+        <li>20 Tasks - Gold Medal</li>
+    </ul>
+</div>
+<hr>
+<button class="question"><span class="q">Q.</span> How is this website beneficial to me?</button>
+<div class="panel">
+    GoalKeeper offers you the platform to assimilate all your habits and goals that you wish to inculcate in your <br> day-to-day life.
+    It also provides incentives on accomplishing tasks in the form of medals to keep you <br> motivated enough to complete them.
+</div>
+<hr>
+<button class="question"><span class="q">Q.</span> What are the unique features of this website? </button>
+<div class="panel">
+    We send reminders incase you opt for them. We also provide you with a statistics and analytics page to <br> give you the
+    numerical nitty-gritty of your tasks. 
+</div>
+<hr>
+<script>
+    var q=document.getElementsByClassName("question");
+    for (var i=0;i<q.length;i++)
+    {
+        q[i].addEventListener("click",open,false); // Bubbling is not of much importance since it is not nested in any way
+    }
+    function open()
+    {
+        this.classList.toggle("active"); //Activated only whne clicked upon
+        var ans=this.nextElementSibling; // Not child but sibling because question and answer goes hand-in-hand
+        if (ans.style.display=="block")
+        {
+            ans.style.display="none";
+        }
+        else
+        {
+            ans.style.display="block";
+        }
+    }
+</script>
+    </body>
+</html>

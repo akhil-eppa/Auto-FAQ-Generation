@@ -1,0 +1,74 @@
+#btn{
+  margin: 4em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 9px 15px;
+  border-style: none;
+  box-shadow: 0px 3px 8px #e0e0e0;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  outline: none;
+  -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.small {
+    font-size: 0.75em;
+  }
+  
+.large {
+    font-size: 1.25em;
+}
+
+#btn:hover {
+    box-shadow: 0 10px 14px 0 rgba(0,0,0,0.24);
+}
+
+#btn.info {
+    background-color: #3f51b5;
+}
+#btn.info:active {
+    box-shadow: 0 7px 8px 0 #3f51b5;
+    transform: translateY(3px);
+}
+
+#btn.success {
+    background-color: #0CCA4A;
+}
+#btn.success:active {
+    box-shadow: 0 7px 8px 0 #0CCA4A;
+    transform: translateY(3px);
+}
+
+#btn.warning {
+    background-color: #FFA807;
+}
+#btn.warning:active {
+    box-shadow: 0 7px 8px 0 #FFA807;
+    transform: translateY(3px);
+}
+
+#btn.danger {
+    background-color: #BD1E1E;
+}
+#btn.danger:active {
+    box-shadow: 0 7px 8px 0 #BD1E1E;
+    transform: translateY(3px);
+}
+
+#btn.olive {
+    background-color: #3B413C;
+}
+#btn.olive:active {
+    box-shadow: 0 7px 8px 0 #3B413C;
+    transform: translateY(3px);
+}
+
+#btn.uber {
+    background-color: #663889;
+}
+#btn.uber:active {
+    box-shadow: 0 7px 8px 0 #663889;
+    transform: translateY(3px);
+}

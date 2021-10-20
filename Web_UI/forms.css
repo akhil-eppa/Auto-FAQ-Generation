@@ -1,0 +1,36 @@
+input[type=text] {
+    width: 75%;
+    padding: 15px;
+    
+    
+    border:2px solid black;
+    border-radius:4px;
+    
+  }
+  input[type=text]:focus {
+      background-color: #f1f1f1;
+  }
+  textarea{
+      width:75%;
+      padding:15px;
+      
+      border-radius: 4px;
+      
+      border:2px solid black;
+      resize: none;
+  }
+  textarea:focus{
+      background-color: #f1f1f1;
+  }
+  input[type=date]{
+      
+      
+      border:2px solid black;
+      border-radius: 4px;
+  }
+  input[type=date]:focus{
+      background-color: #f1f1f1;
+  }
+  input[type=radio]{
+    border:2px solid black;
+  }
