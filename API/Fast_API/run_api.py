@@ -31,7 +31,7 @@ def get_questions_definition(context):
     for entity in entities:
         try:
             if entity['text'] in processed: continue
-            if entity["label"] == "ORG" or entity["label"]=="PERSON" or entity["label"] == "LOC" or entity["label"] == "GPE":
+            if entity["label"] == "ORG" or entity["label"]=="PERSON" or entity["label"] == "GPE":
                 kg_df = knowledge_graph(key=key, query=entity["text"],types=entity["label"])
                 kg_df = kg_df.fillna('')
                 question={}
@@ -40,7 +40,7 @@ def get_questions_definition(context):
                   question["ques"]="What is " + entity["text"] + "?"
                 if entity["label"] == "PERSON":
                   question["ques"]="Who is " + entity["text"] + "?"
-                if entity["label"] == "LOC" or entity["label"] == "GPE":
+                if entity["label"] == "GPE":
                   question["ques"]="Where is " + entity["text"] + "?"
             
                 question["ans"]=df.iloc[0,3]
