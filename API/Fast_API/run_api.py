@@ -30,6 +30,7 @@ def get_questions_definition(context):
     for entity in entities:
         if entity["label"] == "ORG" or entity["label"]=="PERSON" or entity["label"] == "LOC" or entity["label"] == "GPE":
             kg_df = knowledge_graph(key=key, query=entity["text"],types=entity["label"])
+            kg_df = kg_df.fillna('')
             question={}
             df=kg_df[['result.name','result.description', 'resultScore','result.detailedDescription.articleBody']]
             if entity["label"] == "ORG":
@@ -38,8 +39,13 @@ def get_questions_definition(context):
               question["ques"]="Who is " + entity["text"] + "?"
             if entity["label"] == "LOC" or entity["label"] == "GPE":
               question["ques"]="Where is " + entity["text"] + "?"
-            question["ans"]=df.iloc[0,3]
-            questions.append(question)
+            try:
+              question["ans"]=df.iloc[0,3]
+              questions.append(question)
+            except ValueError:
+              continue
+            except Exception as e:
+              continue
     return questions
   
 app = FastAPI()
