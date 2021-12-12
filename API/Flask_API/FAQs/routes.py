@@ -7,11 +7,14 @@ from FAQs.qa_ranker import generate_qa_pairs
 
 @app.route('/api',methods=['GET','POST'])
 def FAQGenerator():
-	if request.method=="POST":
-		context=request.form['context']
+	if request.method=="GET":
+		context=request.args['context']
 		context=context.replace("\n","")
+		print("Extracting answers..")
 		qa_dict=extract_answers(context)
+		print("Generating Questions..")
 		get_questions(qa_dict)
+		print("Building FAQs..")
 		get_gold_answer(qa_dict)
 		QAs=generate_qa_pairs(qa_dict)
 		return jsonify(QAs)
