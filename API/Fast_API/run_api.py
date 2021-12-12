@@ -26,26 +26,30 @@ def get_Entities(context):
 def get_questions_definition(context):
     entities=get_Entities(context)
     questions=[]
+    processed=[]
     key="AIzaSyC_kVxenahbYF-Y4-YKIhrjVgvEUGgtvNw"
     for entity in entities:
-        if entity["label"] == "ORG" or entity["label"]=="PERSON" or entity["label"] == "LOC" or entity["label"] == "GPE":
-            kg_df = knowledge_graph(key=key, query=entity["text"],types=entity["label"])
-            kg_df = kg_df.fillna('')
-            question={}
-            df=kg_df[['result.name','result.description', 'resultScore','result.detailedDescription.articleBody']]
-            if entity["label"] == "ORG":
-              question["ques"]="What is " + entity["text"] + "?"
-            if entity["label"] == "PERSON":
-              question["ques"]="Who is " + entity["text"] + "?"
-            if entity["label"] == "LOC" or entity["label"] == "GPE":
-              question["ques"]="Where is " + entity["text"] + "?"
-            try:
-              question["ans"]=df.iloc[0,3]
-              questions.append(question)
-            except ValueError:
-              continue
-            except Exception as e:
-              continue
+        try:
+            if entity['text'] in processed: continue
+            if entity["label"] == "ORG" or entity["label"]=="PERSON" or entity["label"] == "LOC" or entity["label"] == "GPE":
+                kg_df = knowledge_graph(key=key, query=entity["text"],types=entity["label"])
+                kg_df = kg_df.fillna('')
+                question={}
+                df=kg_df[['result.name','result.description', 'resultScore','result.detailedDescription.articleBody']]
+                if entity["label"] == "ORG":
+                  question["ques"]="What is " + entity["text"] + "?"
+                if entity["label"] == "PERSON":
+                  question["ques"]="Who is " + entity["text"] + "?"
+                if entity["label"] == "LOC" or entity["label"] == "GPE":
+                  question["ques"]="Where is " + entity["text"] + "?"
+            
+                question["ans"]=df.iloc[0,3]
+                questions.append(question)
+                processed.append(entity["text"])
+        except ValueError:
+            continue
+        except Exception as e:
+            continue
     return questions
   
 app = FastAPI()
