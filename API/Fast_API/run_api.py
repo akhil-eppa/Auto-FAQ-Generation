@@ -3,6 +3,10 @@ import pandas as pd
 import spacy
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from get_answer_v2 import extract_answers
+from question_generator import get_questions
+from get_gold_answer import get_gold_answer
+from qa_ranker import generate_qa_pairs
 
 
 nlp=spacy.load("en_core_web_sm")
