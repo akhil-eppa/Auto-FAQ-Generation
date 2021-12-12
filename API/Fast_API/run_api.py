@@ -105,3 +105,5 @@ async def test():
         "score": 0.9744633436203003
     }
 ]
+if __name__ == '__main__' :
+  app.run(host='0.0.0.0')
