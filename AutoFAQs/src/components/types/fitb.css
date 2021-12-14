@@ -1,0 +1,21 @@
+.options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.answer {
+  text-align: center;
+  margin: 0px 10px;
+  /* flex-grow: 1; */
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgb(209, 209, 214);
+}
+
+.ques {
+  margin: 20px 0px;
+  text-align: start;
+}

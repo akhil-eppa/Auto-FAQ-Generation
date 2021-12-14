@@ -1,0 +1,12 @@
+.theme {
+  min-height: 100vh;
+  min-width: 100vh;
+  position: relative;
+  /* overflow: scroll; */
+  padding-bottom: 64px;
+  text-align: center;
+  color: rgb(209, 209, 214);
+  background-color: rgb(28, 28, 30);
+  transition: color 250ms;
+  transition: background-color 500ms ease-in-out;
+}

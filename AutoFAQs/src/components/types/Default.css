@@ -1,0 +1,9 @@
+.default {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 50px;
+  font-size: large;
+}

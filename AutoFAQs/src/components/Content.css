@@ -1,0 +1,42 @@
+.row {
+  height: 100vh;
+}
+
+.column1 {
+  background-color: rgb(58, 58, 60);
+  padding: 15px;
+  border-right: 2px solid rgb(209, 209, 214);
+  font-family: "Merriweather Sans";
+  color: rgb(209, 209, 214);
+  border-top: 2px solid rgb(209, 209, 214);
+}
+
+.column2 {
+  height: 100vh;
+  background-color: rgb(58, 58, 60);
+  padding: 15px;
+  font-family: "Merriweather Sans";
+  color: rgb(209, 209, 214);
+  border-top: 2px solid rgb(209, 209, 214);
+  overflow-y: scroll;
+}
+
+#context,
+#limit {
+  background-color: rgb(58, 58, 60);
+  font-family: "Merriweather Sans";
+  color: rgb(209, 209, 214);
+  border-color: rgb(209, 209, 214);
+}
+
+#limit {
+  width: 100%;
+  text-align: center;
+}
+
+.eval-buttons-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}

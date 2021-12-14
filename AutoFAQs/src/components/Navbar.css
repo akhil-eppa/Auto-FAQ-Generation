@@ -1,0 +1,29 @@
+#navbar {
+  /* height: 60px; */
+  background-color: rgb(58, 58, 60);
+  /* display: flex;
+  align-content: center; */
+}
+
+.name {
+  position: relative;
+  width: 100%;
+  top: 5px;
+  color: rgb(209, 209, 214) !important;
+  text-align: center;
+  font-family: "Merriweather Sans";
+}
+
+#controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navButtons {
+  background-color: rgb(58, 58, 60) !important;
+  color: rgb(209, 209, 214) !important;
+  border-color: rgb(58, 58, 60) !important;
+  font-family: "Merriweather Sans";
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}

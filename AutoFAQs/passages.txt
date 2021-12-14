@@ -1,0 +1,46 @@
+ssh -i C:\Users\Punit\ReactProjects\flask2.pem ubuntu@65.0.171.118
+source my_env/bin/activate
+pkill gunicorn (For "Connection in use" error)
+gunicorn -b 0.0.0.0:8000 --access-logfile - --workers=3 --timeout 500 --worker-class=gevent "application:application"
+
+ssh -i C:\Users\Punit\ReactProjects\blogger.pem ubuntu@3.226.8.44
+source myenv/bin/activate
+pkill gunicorn (For "Connection in use" error)
+gunicorn -b 0.0.0.0:8000 --access-logfile - --workers=3 --timeout 200 "run:app"
+http://ec2-3-226-8-44.compute-1.amazonaws.com:8000/
+
+
+github-vscode-auth: vscode://vscode.github-authentication/did-authenticate?windowid=1&code=57953ed0fa79fe67c496&state=8e8b5d7c-28eb-4b00-a548-22aedf4e56f3
+
+Architecturally, the school has a Catholic character. Atop the Main Building\'s gold dome is a golden statue of the Virgin Mary. Immediately in front of the Main Building and facing it, is a copper statue of Christ with arms upraised with the legend "Venite Ad Me Omnes". Next to the Main Building is the Basilica of the Sacred Heart. Immediately behind the basilica is the Grotto, a Marian place of prayer and reflection. It is a replica of the grotto at Lourdes, France where the Virgin Mary reputedly appeared to Saint Bernadette Soubirous in 1858. At the end of the main drive (and in a direct line that connects through 3 statues and the Gold Dome), is a simple, modern stone statue of Mary.
+
+The College of Engineering was established in 1920, however, early courses in civil and mechanical engineering were a part of the College of Science since the 1870s. Today the college, housed in the Fitzpatrick, Cushing, and Stinson-Remick Halls of Engineering, includes five departments of study – aerospace and mechanical engineering, chemical and biomolecular engineering, civil engineering and geological sciences, computer science and engineering, and electrical engineering – with eight B.S. degrees offered. Additionally, the college offers five-year dual degree programs with the Colleges of Arts and Letters and of Business awarding additional B.A. and Master of Business Administration (MBA) degrees, respectively.
+
+The university first offered graduate degrees, in the form of a Master of Arts (MA), in the 1854–1855 academic year. The program expanded to include Master of Laws (LL.M.) and Master of Civil Engineering in its early stages of growth, before a formal graduate school education was developed with a thesis not required to receive the degrees. This changed in 1924 with formal requirements developed for graduate degrees, including offering Doctorate (PhD) degrees. Today each of the five colleges offer graduate education. Most of the departments from the College of Arts and Letters offer PhD programs, while a professional Master of Divinity (M.Div.) program also exists. All of the departments in the College of Science offer PhD programs, except for the Department of Pre-Professional Studies. The School of Architecture offers a Master of Architecture, while each of the departments of the College of Engineering offer PhD programs. The College of Business offers multiple professional programs including MBA and Master of Science in Accountancy programs. It also operates facilities in Chicago and Cincinnati for its executive MBA program. Additionally, the Alliance for Catholic Education program offers a Master of Education program where students study at the university during the summer and teach in Catholic elementary schools, middle schools, and high schools across the Southern United States for two school years.
+
+On April 4, 2008, Beyoncé married Jay Z. She publicly revealed their marriage in a video montage at the listening party for her third studio album, I Am... Sasha Fierce, in Manhattan\'s Sony Club on October 22, 2008. I Am... Sasha Fierce was released on November 18, 2008 in the United States. The album formally introduces Beyoncé\'s alter ego Sasha Fierce, conceived during the making of her 2003 single "Crazy in Love", selling 482,000 copies in its first week, debuting atop the Billboard 200, and giving Beyoncé her third consecutive number-one album in the US. The album featured the number-one song "Single Ladies (Put a Ring on It)" and the top-five songs "If I Were a Boy" and "Halo". Achieving the accomplishment of becoming her longest-running Hot 100 single in her career, "Halo"\'s success in the US helped Beyoncé attain more top-ten singles on the list than any other woman during the 2000s. It also included the successful "Sweet Dreams", and singles "Diva", "Ego", "Broken-Hearted Girl" and "Video Phone". The music video for "Single Ladies" has been parodied and imitated around the world, spawning the "first major dance craze" of the Internet age according to the Toronto Star. The video has won several awards, including Best Video at the 2009 MTV Europe Music Awards, the 2009 Scottish MOBO Awards, and the 2009 BET Awards. At the 2009 MTV Video Music Awards, the video was nominated for nine awards, ultimately winning three including Video of the Year. Its failure to win the Best Female Video category, which went to American country pop singer Taylor Swift\'s "You Belong with Me", led to Kanye West interrupting the ceremony and Beyoncé improvising a re-presentation of Swift\'s award during her own acceptance speech. In March 2009, Beyoncé embarked on the I Am... World Tour, her second headlining worldwide concert tour, consisting of 108 shows, grossing $119.5 million.
+
+After Hurricane Katrina in 2005, Beyoncé and Rowland founded the Survivor Foundation to provide transitional housing for victims in the Houston area, to which Beyoncé contributed an initial $250,000. The foundation has since expanded to work with other charities in the city, and also provided relief following Hurricane Ike three years later.9
+
+Greenhouses convert solar light to heat, enabling year-round production and the growth (in enclosed environments) of specialty crops and other plants not naturally suited to the local climate. Primitive greenhouses were first used during Roman times to produce cucumbers year-round for the Roman emperor Tiberius. The first modern greenhouses were built in Europe in the 16th century to keep exotic plants brought back from explorations abroad. Greenhouses remain an important part of horticulture today, and plastic transparent materials have also been used to similar effect in polytunnels and row covers.
+
+With the Conference of Berlin of 1884, Portuguese Africa territories had their borders formally established on request of Portugal in order to protect the centuries-long Portuguese interests in the continent from rivalries enticed by the Scramble for Africa. Portuguese Africa's cities and towns like Nova Lisboa, Sá da Bandeira, Silva Porto, Malanje, Tete, Vila Junqueiro, Vila Pery and Vila Cabral were founded or redeveloped inland during this period and beyond. New coastal towns like Beira, Moçâmedes, Lobito, João Belo, Nacala and Porto Amélia were also founded. Even before the turn of the 20th century, railway tracks as the Benguela railway in Angola, and the Beira railway in Mozambique, started to be built to link coastal areas and selected inland regions.
+
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1631040124204",
+    "Statement": [
+        {
+            "Sid": "Stmt1631040108465",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::361626037124:root"
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::assess-me-flask-api",
+                "arn:aws:s3:::assess-me-flask-api/*"
+            ]
+        }
+    ]
+}
